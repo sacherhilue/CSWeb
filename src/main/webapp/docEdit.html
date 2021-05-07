@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<meta charset="UTF-8">
+<title>公共文档编辑</title>
+</head>
+<body>
+	<h1 align="center">公共文档编辑</h1>
+	<form id="form-1" method="post"  >
+		<div>
+			<label for="input-1">公共文档名称:</label>
+			<input id="input-1" placeholder="Text" type="text"/>
+		</div>
+		<div >
+			<div align="center">
+				<div style="display: inline-block;">
+					<a href="" id="button-1" data-rel="external" class="ui-btn ui-btn-inline ui-corner-all">添加附件</a>
+				</div>
+				<div style="display: inline-block;">
+					<fieldset data-role="controlgroup" data-type="horizontal" id="checkboxes-1">
+						<legend></legend>
+						<input name="checkbox-1a" id="checkbox-1a" type="checkbox"/>
+						<label for="checkbox-1a">公共文档共享</label>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+		<div>
+			<label for="input-2">公共文档内容:</label>
+			<textarea rows="20" cols="100" placeholder="请输入文档内容"></textarea>
+		</div>
+		<input type="submit" value="提交" id="button-2"  />
+	</form>
+</body>
+</html>

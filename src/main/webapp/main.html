@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<meta charset="UTF-8">
+<title>主界面</title>
+</head>
+<script type="text/javascript">
+	function showDiv(id)
+	{
+		var traget=document.getElementById(id);
+		if(traget.style.visibility=="visible" )
+		{
+			traget.style.visibility="hidden"; 
+		}
+		else
+			traget.style.visibility="visible"; 
+	}
+</script>
+<body>
+	<h1 id="heading-1" class="ui-bar ui-bar-a ui-corner-all" align="center">绵阳移动办公系统--后台管理界面</h1>
+	<div data-role="collapsible-set" id="collapsible-set-1" class="collapsible-left" style="width: 20%; display: inline-block;">
+		<div data-role="collapsible">
+			<h4>公告管理</h4>
+			<ul data-role="listview" id="listview-1">
+				<li><a onclick="showDiv('all-content')">查看公告</a></li>
+				<li><a href="annEdit.html"  target="_blank">新增公告</a></li>
+				<li><a href="ann.html"  target="_blank">删除公告</a></li>
+				<li><a href="ann.html"  target="_blank">锁定公告</a></li>
+			</ul>
+		</div>
+		<div data-role="collapsible">
+			<h4>公共文档管理</h4>
+			<ul data-role="listview" id="listview-2">
+				<li><a onclick="showDiv('all-content')"target="_blank">查看公共文档</a></li>
+				<li><a href="docEdit.html" target="_blank">新建公共文档</a></li>
+				<li><a href="doc.html" target="_blank">删除公共文档</a></li>
+			</ul>
+		</div>
+		<div data-role="collapsible">
+			<h4>新闻管理</h4>
+			<ul data-role="listview" id="listview-3">
+				<li><a onclick="showDiv('all-content')" target="_blank">查看新闻</a></li>
+				<li><a href="newsEdit.html" target="_blank">新建新闻</a></li>
+				<li><a href="news.html" target="_blank">删除新闻</a></li>
+			</ul>
+		</div>
+		<div data-role="collapsible">
+			<h4>流程管理</h4>
+			<ul data-role="listview" id="listview-4">
+				<li><a onclick="showDiv('all-content')" target="_blank">查看流程</a></li>
+				<li><a href="processEdit.html" target="_blank">新建流程</a></li>
+				<li><a href="process.html" target="_blank">删除流程</a></li>
+			</ul>
+		</div>
+		<div data-role="collapsible">
+			<h4>流程类别管理</h4>
+			<ul data-role="listview" id="listview-5">
+				<li><a onclick="showDiv('all-content')" target="_blank">查看流程类别</a></li>
+				<li><a href="processTypeEdit.html" target="_blank">新建流程类别</a></li>
+				<li><a href="processType.html" target="_blank">删除流程类别</a></li>
+			</ul>
+		</div>
+		<div data-role="collapsible">
+			<h4>表单管理</h4>
+			<ul data-role="listview" id="listview-6">
+				<li><a onclick="showDiv('all-content')" target="_blank">查看表单</a></li>
+				<li><a href="formEdit.html" target="_blank">新建表单</a></li>
+				<li><a href="form.html" target="_blank">删除表单</a></li>
+			</ul>
+		</div>
+		<div data-role="collapsible">
+			<h4>用户权限管理</h4>
+			<ul data-role="listview" id="listview-6">
+				<li><a href="userPriv.html" target="_blank">修改用户权限</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="all-content" class="ui-body-d  collapsible-content" style="visibility:hidden; width: 70%; display: inline-block;vertical-align: top;margin-left: 5%;">
+			<h4>内容显示</h4>
+			<ul data-role="listview" id="listview-7" data-filter="true" data-filter-placeholder="请输入名称…">
+				<li><a href="item1.html">Item 1</a></li>
+				<li><a href="item2.html">Item 2</a></li>
+				<li><a href="item3.html">Item 3</a></li>
+			</ul>
+	</div>
+	<h3 align="center">Copyright By myyd@mdzz</h3>
+</body>
+</html>
