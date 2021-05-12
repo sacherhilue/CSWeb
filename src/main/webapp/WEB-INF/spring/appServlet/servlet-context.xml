@@ -23,11 +23,11 @@
 		<beans:property name="suffix" value=".html" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.myyd" />
+	<context:component-scan base-package="cn.edu.cqu" />
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<beans:property name="url" value="jdbc:mysql://bjarssus.top/myyd?useUnicode=true&amp;characterEncoding=UTF-8" />
+		<beans:property name="url" value="jdbc:mysql://localhost:8080/curriculum?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<beans:property name="username" value="mdzz" />
 		<beans:property name="password" value="mdzz" />
 	</beans:bean> 
@@ -36,7 +36,7 @@
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
 		<!-- 扫描包-->
-		<beans:property name="packagesToScan" value="com.myyd.domains" />
+		<beans:property name="packagesToScan" value="cn.edu.cqu.domains" />
 		
 		<beans:property name="hibernateProperties">
 			<beans:props>

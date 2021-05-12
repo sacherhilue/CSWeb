@@ -1,4 +1,4 @@
-package com.myyd.services.hibernate;
+package cn.edu.cqu.services.hibernate;
 
 import java.util.List;
 
@@ -8,8 +8,8 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.myyd.domains.User;
-import com.myyd.services.UserCRUD;
+import cn.edu.cqu.domains.User;
+import cn.edu.cqu.services.UserCRUD;
 
 @Service("userCRUDHibernate")
 public class UserCRUDHibernate implements UserCRUD

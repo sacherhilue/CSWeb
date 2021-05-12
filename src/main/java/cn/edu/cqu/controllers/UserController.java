@@ -1,4 +1,4 @@
-package com.myyd.controllers;
+package cn.edu.cqu.controllers;
 
 import java.io.IOException;
 import java.util.HashMap;

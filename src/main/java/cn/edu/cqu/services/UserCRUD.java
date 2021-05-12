@@ -1,7 +1,7 @@
-package com.myyd.services;
+package cn.edu.cqu.services;
 import java.util.List;
 
-import com.myyd.domains.User;
+import cn.edu.cqu.domains.User;
 public interface UserCRUD {
 	public void add(User user);
 

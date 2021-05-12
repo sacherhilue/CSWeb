@@ -1,4 +1,4 @@
-package com.myyd.domains;
+package cn.edu.cqu.domains;
 
 import java.io.Serializable;
 
