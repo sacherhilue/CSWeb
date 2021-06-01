@@ -13,13 +13,17 @@ public class Crawler
 	{
 		Document doc = Jsoup.connect("http://www.cs.cqu.edu.cn/").get();
 		Elements links = doc.select("#u_u4_ifocus_piclist").first().select("ul").select("li");
+		Elements link2 = doc.select("#u_u4_ifocus_tx_ul").first().select("li");
 		//System.out.println(links.html());
 		//System.out.println("");
-		for (Element element : links)
+		for (Element element : link2)
 		{
-			String url = "http://www.cs.cqu.edu.cn/" + element.select("a").attr("href");
-			String imgSrc =  "http://www.cs.cqu.edu.cn" +element.select("a").select("img").attr("src");
-			System.out.println(imgSrc+ url);
+//			String url = "http://www.cs.cqu.edu.cn/" + element.select("a").attr("href");
+//			String imgSrc =  "http://www.cs.cqu.edu.cn" +element.select("a").select("img").attr("src");
+//			System.out.println(imgSrc+ url);
+			String title = element.text();
+			System.out.println(title);
 		}
+		
 	}
 }
