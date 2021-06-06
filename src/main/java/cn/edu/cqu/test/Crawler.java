@@ -12,7 +12,7 @@ public class Crawler
 	public static void main(String[] args) throws IOException
 	{
 		Document doc = Jsoup.connect("http://www.cs.cqu.edu.cn/").get();
-		Elements links = doc.select("#u_u4_ifocus_piclist").first().select("ul").select("li");
+//		Elements links = doc.select("#u_u4_ifocus_piclist").first().select("ul").select("li");
 		Elements link2 = doc.select("#u_u4_ifocus_tx_ul").first().select("li");
 		//System.out.println(links.html());
 		//System.out.println("");
