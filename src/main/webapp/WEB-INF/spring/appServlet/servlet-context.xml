@@ -27,7 +27,7 @@
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<beans:property name="url" value="jdbc:mysql://localhost:3306/curriculum?useUnicode=true&amp;characterEncoding=UTF-8" />
+		<beans:property name="url" value="jdbc:mysql://localhost:3306/csweb?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<beans:property name="username" value="root" />
 		<beans:property name="password" value="123456" />
 	</beans:bean> 
@@ -40,7 +40,7 @@
 		
 		<beans:property name="hibernateProperties">
 			<beans:props>
-                <beans:prop key="hibernate.hbm2ddl.auto">update</beans:prop>
+                <beans:prop key="hibernate.hbm2ddl.auto">create</beans:prop>
                 <beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</beans:prop>
                 <!-- <beans:prop key="hibernate.show_sql">true</beans:prop> -->
             </beans:props>

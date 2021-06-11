@@ -2,12 +2,12 @@ package cn.edu.cqu.domains;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
+//import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
+//import javax.persistence.Table;
 
-@Entity
-@Table(name="UserTest")
+//@Entity
+//@Table(name="UserTest")
 public class User implements Serializable
 {
 	/**
