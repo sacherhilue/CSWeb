@@ -1,5 +1,7 @@
 package cn.edu.cqu.domains;
 
+import java.io.Serializable;
+
 /***********************************************************************
  * Module:  Admin.java
  * Author:  Guo
@@ -10,9 +12,18 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
 @Table(name="Admin")
-public class Admin {
+@DynamicUpdate
+@DynamicInsert
+public class Admin implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	public java.lang.String aid;
 	public java.lang.String aName;

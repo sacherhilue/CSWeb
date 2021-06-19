@@ -1,5 +1,18 @@
 package cn.edu.cqu.domains;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 /***********************************************************************
  * Module:  CollegeNews.java
  * Author:  Guo
@@ -7,26 +20,71 @@ package cn.edu.cqu.domains;
  ***********************************************************************/
 
 
-/** @pdOid 872ef93e-7de3-4685-8094-6c6d82e4a57f */
-public class CollegeNews {
-   /** @pdOid bae9ad64-35da-4a90-844a-8166c19d1d64 */
-   public int cNewsID;
-   /** @pdOid e246a107-8438-42ed-a6fa-a01ac22fd9fc */
-   public java.util.Date cNewsDate;
-   /** @pdOid 2fca85c2-6f40-4614-b863-35cb842828fa */
-   public java.lang.String cNewsURL;
-   /** @pdOid c6ec5c12-6250-4887-83e4-04429d473558 */
-   public java.lang.String cNewsImgURL;
-   /** @pdOid 0584983a-c76a-4ff6-801d-bc3f1fd193c3 */
-   public java.lang.String cNewsContent;
-   
-   /** @pdRoleInfo migr=no name=Admin assc=reference1 mult=0..1 side=A */
-   public Admin admin;
-   
-   
-   /** @pdGenerated default parent getter */
-   public Admin getAdmin() {
-      return admin;
-   }
-   
+@Entity
+@Table(name="CollegeNews")
+@DynamicUpdate
+@DynamicInsert
+public class CollegeNews implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	public String cNewsID;
+	public java.util.Date cNewsDate;
+	public java.lang.String cNewsURL;
+	public java.lang.String cNewsImgURL;
+	public java.lang.String cNewsContent;
+
+	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY,optional=true)
+	@JoinColumn(name="aid",nullable=true)
+	public Admin admin;
+
+	public String getcNewsID() {
+		return cNewsID;
+	}
+
+	public void setcNewsID(String cNewsID) {
+		this.cNewsID = cNewsID;
+	}
+
+	public java.util.Date getcNewsDate() {
+		return cNewsDate;
+	}
+
+	public void setcNewsDate(java.util.Date cNewsDate) {
+		this.cNewsDate = cNewsDate;
+	}
+
+	public java.lang.String getcNewsURL() {
+		return cNewsURL;
+	}
+
+	public void setcNewsURL(java.lang.String cNewsURL) {
+		this.cNewsURL = cNewsURL;
+	}
+
+	public java.lang.String getcNewsImgURL() {
+		return cNewsImgURL;
+	}
+
+	public void setcNewsImgURL(java.lang.String cNewsImgURL) {
+		this.cNewsImgURL = cNewsImgURL;
+	}
+
+	public java.lang.String getcNewsContent() {
+		return cNewsContent;
+	}
+
+	public void setcNewsContent(java.lang.String cNewsContent) {
+		this.cNewsContent = cNewsContent;
+	}
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
 }

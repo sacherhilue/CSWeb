@@ -6,36 +6,34 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.edu.cqu.domains.Admin;
-import cn.edu.cqu.services.AdminCRUD;
+import cn.edu.cqu.domains.CollegeProfile;
+import cn.edu.cqu.services.CollegeProfileCRUD;
 
-@Service("AdminCRUDHibernate")
-public class AdminCRUDHibernate implements AdminCRUD
-{
+@Service("CollegeProfileCRUDHibernate")
+public class CollegeProfileCRUDHibernate implements CollegeProfileCRUD {
+
 	private HibernateTemplate ht;
 	@Autowired
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		ht = new HibernateTemplate(sessionFactory);
 	}
-
+	
 	@Override
-	public Admin getByID(String aid)
-	{
-		return ht.get(Admin.class, aid);
+	public CollegeProfile getByID(String cpID) {
+		return ht.get(CollegeProfile.class, cpID);
 	}
 
 	@Override
 	@Transactional
-	public void edit(Admin newAdmin)
-	{
-		ht.merge(newAdmin);
+	public void edit(CollegeProfile collegeProfile) {
+		ht.merge(collegeProfile);
 	}
 
 	@Override
-	public void deleteByID(String aid)
-	{
-		Admin a = this.getByID(aid);
-		ht.delete(a);
+	@Transactional
+	public void deleteByID(String cpID) {
+		CollegeProfile cp = this.getByID(cpID);
+		ht.delete(cp);
 	}
 
 }

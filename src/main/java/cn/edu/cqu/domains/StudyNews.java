@@ -9,7 +9,7 @@ package cn.edu.cqu.domains;
 /** @pdOid 78d94ee7-a7b4-4428-bb05-bf608397b59f */
 public class StudyNews {
    /** @pdOid 4209b49a-dc8c-4d09-beca-a931bb55a8b1 */
-   public int sNewsID;
+   public String sNewsID;
    /** @pdOid 14493321-835d-48bb-947f-6790f486a91f */
    public java.util.Date sNewsDate;
    /** @pdOid 86d07141-ad54-43cb-90c1-8e820867c2c1 */

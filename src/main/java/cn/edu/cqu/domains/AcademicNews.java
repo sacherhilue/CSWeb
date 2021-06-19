@@ -1,11 +1,17 @@
 package cn.edu.cqu.domains;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 /***********************************************************************
  * Module:  AcademicNews.java
@@ -16,18 +22,23 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="AcademicNews")
-public class AcademicNews {
+@DynamicUpdate
+@DynamicInsert
+public class AcademicNews implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
-	public int aNewsID;
+	public String aNewsID;
 	public java.util.Date aNewsDate;
 	public java.lang.String aNewsURL;
 	public java.lang.String aNewsImgURL;
 	public java.lang.String aNewsContent;
-
+	
 	public Admin admin;
-
-	@ManyToOne(cascade={CascadeType.ALL})
-	@JoinColumn(name="aid") 
+	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY,optional=true)
+	@JoinColumn(name="aid",nullable=true)
 	public Admin getAdmin() {
 		return admin;
 	}
@@ -36,12 +47,12 @@ public class AcademicNews {
 		this.admin = admin;
 	}
 
-	public int getaNewsID()
+	public String getaNewsID()
 	{
 		return aNewsID;
 	}
 
-	public void setaNewsID(int aNewsID)
+	public void setaNewsID(String aNewsID)
 	{
 		this.aNewsID = aNewsID;
 	}

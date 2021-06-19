@@ -1,30 +1,81 @@
 package cn.edu.cqu.domains;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 /***********************************************************************
  * Module:  CollegeProfile.java
  * Author:  Guo
  * Purpose: Defines the Class CollegeProfile
  ***********************************************************************/
 
+@Entity
+@Table(name="CollegeProfile")
+@DynamicUpdate
+@DynamicInsert
+public class CollegeProfile implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	public String cpID;
+	public java.lang.String cpURL;
+	public java.lang.String cpImgURL;
+	public java.lang.String cpContent;
 
-/** @pdOid fb5d6fbd-d81e-4d4e-b7af-375b77067c6a */
-public class CollegeProfile {
-   /** @pdOid 5585406c-0250-4b80-a6e0-afe06120bc5b */
-   public int cpID;
-   /** @pdOid 6dcd1dc5-f25c-4298-9459-06791473db1a */
-   public java.lang.String cpURL;
-   /** @pdOid d4b6c278-f7aa-4cba-8429-d8cb99846850 */
-   public java.lang.String cpImgURL;
-   /** @pdOid 8ae47c66-d41d-4e4f-b0dd-fa495ee0615e */
-   public java.lang.String cpContent;
-   
-   /** @pdRoleInfo migr=no name=Admin assc=reference5 mult=0..1 side=A */
-   public Admin admin;
-   
-   
-   /** @pdGenerated default parent getter */
-   public Admin getAdmin() {
-      return admin;
-   }
+	@ManyToOne(cascade=CascadeType.ALL,fetch=FetchType.LAZY,optional=true)
+	@JoinColumn(name="aid",nullable=true)
+	public Admin admin;
+
+	public String getCpID() {
+		return cpID;
+	}
+
+	public void setCpID(String cpID) {
+		this.cpID = cpID;
+	}
+
+	public java.lang.String getCpURL() {
+		return cpURL;
+	}
+
+	public void setCpURL(java.lang.String cpURL) {
+		this.cpURL = cpURL;
+	}
+
+	public java.lang.String getCpImgURL() {
+		return cpImgURL;
+	}
+
+	public void setCpImgURL(java.lang.String cpImgURL) {
+		this.cpImgURL = cpImgURL;
+	}
+
+	public java.lang.String getCpContent() {
+		return cpContent;
+	}
+
+	public void setCpContent(java.lang.String cpContent) {
+		this.cpContent = cpContent;
+	}
+
+	public Admin getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Admin admin) {
+		this.admin = admin;
+	}
 
 }

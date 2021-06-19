@@ -6,12 +6,12 @@ import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.edu.cqu.domains.Admin;
-import cn.edu.cqu.services.AdminCRUD;
+import cn.edu.cqu.domains.AcademicNews;
+import cn.edu.cqu.services.AcademicNewsCRUD;
 
-@Service("AdminCRUDHibernate")
-public class AdminCRUDHibernate implements AdminCRUD
-{
+@Service("AcademicNewsCRUDHibernate")
+public class AcademicNewsCRUDHibernate implements AcademicNewsCRUD {
+
 	private HibernateTemplate ht;
 	@Autowired
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -19,22 +19,20 @@ public class AdminCRUDHibernate implements AdminCRUD
 	}
 
 	@Override
-	public Admin getByID(String aid)
-	{
-		return ht.get(Admin.class, aid);
+	public AcademicNews getByID(String aNewsID) {
+		return ht.get(AcademicNews.class, aNewsID);
 	}
 
 	@Override
 	@Transactional
-	public void edit(Admin newAdmin)
-	{
+	public void edit(AcademicNews newAdmin) {
 		ht.merge(newAdmin);
 	}
 
 	@Override
-	public void deleteByID(String aid)
-	{
-		Admin a = this.getByID(aid);
+	@Transactional
+	public void deleteByID(String aNewsID) {
+		AcademicNews a = this.getByID(aNewsID);
 		ht.delete(a);
 	}
 
